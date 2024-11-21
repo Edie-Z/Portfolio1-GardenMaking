@@ -6,13 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var isScrolling = false;
 
     var updateNavigation = function () {
-        var scrollPosition = container.scrollTop;
+        var containerHeight = window.innerHeight;
 
         sections.forEach(function (section, index) {
-            var offsetTop = section.offsetTop;
-            var offsetHeight = section.offsetHeight;
+            var rect = section.getBoundingClientRect();
 
-            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            if (rect.top >= 0 && rect.top < containerHeight / 2) {
                 navLinks.forEach(function (link) {
                     link.classList.remove('active');
                 });
@@ -27,31 +26,56 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    var scrollToSection = function (deltaY) {
-        if (isScrolling) return;
-
-        var currentScroll = container.scrollTop;
-        var viewportHeight = window.innerHeight;
-
-        var nextScroll = deltaY > 0 
-            ? Math.ceil(currentScroll / viewportHeight) * viewportHeight
-            : Math.floor(currentScroll / viewportHeight) * viewportHeight;
+    var scrollToSection = function (index) {
+        var targetSection = sections[index];
+        if (!targetSection || isScrolling) return;
 
         isScrolling = true;
 
+        var offsetTop = targetSection.offsetTop;
+
         container.scrollTo({
-            top: nextScroll,
+            top: offsetTop,
             behavior: 'smooth'
         });
 
         setTimeout(function () {
             isScrolling = false;
+            updateNavigation();
         }, 800);
     };
 
+    navLinks.forEach(function (link, index) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            scrollToSection(index);
+        });
+    });
+
     container.addEventListener('wheel', function (e) {
-        scrollToSection(e.deltaY);
+        var deltaY = e.deltaY;
+        var currentScroll = container.scrollTop;
+        var viewportHeight = window.innerHeight;
+
+        var nextScroll = deltaY > 0
+            ? Math.ceil(currentScroll / viewportHeight) * viewportHeight
+            : Math.floor(currentScroll / viewportHeight) * viewportHeight;
+
+        if (!isScrolling) {
+            isScrolling = true;
+            container.scrollTo({
+                top: nextScroll,
+                behavior: 'smooth'
+            });
+
+            setTimeout(function () {
+                isScrolling = false;
+                updateNavigation();
+            }, 800);
+        }
     });
 
     container.addEventListener('scroll', updateNavigation);
+
+    updateNavigation();
 });

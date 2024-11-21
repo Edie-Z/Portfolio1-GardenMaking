@@ -12,6 +12,7 @@ body {
     background-position: center;
     font-family: 'Avenir LT Pro 65 Medium', sans-serif;
     overflow: hidden;
+	transition: background-image 0.8s ease;
 }
 
 .container {

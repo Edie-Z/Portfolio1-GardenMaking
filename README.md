@@ -6,8 +6,6 @@
 
 This webpage features smooth scrolling navigation, dynamic background transitions, and a full-screen display of the project's visual assets.
 
----
-
 ## Design Process
 
 1. **Research**:
@@ -27,8 +25,6 @@ This webpage features smooth scrolling navigation, dynamic background transition
    - Created 3D models of garden elements using **SketchUp**.
    - Rendered high-quality visualizations with **Enscape**.
 
----
-
 ## Features and Tools
 
 ### Tools Used
@@ -46,7 +42,6 @@ This webpage features smooth scrolling navigation, dynamic background transition
 - `GM.css`: Stylesheet defining visual elements such as backgrounds, navigation effects, and image layouts.
 - `GM.js`: JavaScript file for interactivity, including scroll handling, background transitions, and navigation updates.
 
----
 ![Introduction](0.png)
 ![Background](1.png)
 ![Research](2.png)

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**Garden-Making** is a design showcase for an AR-enabled gardening app inspired by traditional Chinese gardens. This webpage highlights the design journey of the project, created in **2021**, including research, conceptualization, and interface design. The app aims to blend online and offline experiences, promoting garden aesthetics and encouraging engagement with physical garden sites.
+**Garden-Making** is a design showcase for an AR-enabled gardening app inspired by traditional Chinese gardens. This webpage highlights the design journey of the project, created in **2021**, including research, conceptualization, and interface design. The app aims to blend online and onsite experiences, promoting garden aesthetics and encouraging engagement with physical garden sites.
 
 This webpage features smooth scrolling navigation, dynamic background transitions, and a full-screen display of the project's visual assets.
 
